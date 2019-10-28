@@ -11,5 +11,5 @@ package impresoraucab;
  */
 public enum Estatus
 {
-    IMPRIMIR, CANCELADO
+    IMPRIMIR, IMPRIMIENDO, IMPRESO, CANCELADO
 }

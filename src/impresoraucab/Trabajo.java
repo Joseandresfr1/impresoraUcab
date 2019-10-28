@@ -11,6 +11,15 @@ package impresoraucab;
  */
 public class Trabajo {
     private Estatus estatus;
+    private String contenido;
+
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
+    }
+
+    public String getContenido() {
+        return contenido;
+    }
     
     public void Trabajo(Estatus estatus){
         this.estatus = estatus;
