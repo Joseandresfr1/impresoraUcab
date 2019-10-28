@@ -5,19 +5,31 @@
  */
 package impresoraucab;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 /**
  *
  * @author josea
  */
 public class Impresora {
+    private List<Trabajo> colaDeImpresion = new ArrayList<>();
+    private boolean  estado;   
     //Constructor
     public void Impresora(){
         
     }
     
-    public void obtenerTrabajosEnCola(){
+    public int obtenerTrabajosEnCola(){
     //obtiene la cantidad de trabajos (número entero positivo) encolados que deben ser impresos
-    
+        int cont = 0;
+        for (Trabajo trabajo : colaDeImpresion) {
+            if (trabajo.getEstatus() == Estatus.IMPRIMIR) {
+                cont++;
+            }
+        }
+        return cont;
     }
     
     public void pausarImpresion(){
@@ -32,4 +44,30 @@ public class Impresora {
     //obtiene el trabajo proximo a ser impreso.
     
     }
+    
+    public boolean imprimir(Trabajo trabajo) throws InterruptedException{
+        TimeUnit.SECONDS.sleep(5); // ESPERA QUE SIMULA IMPRESION
+        int maxValor = 5;
+        int minValor = 1;
+        int estatusFinal = (int) Math.floor(Math.random()*(-maxValor+minValor)+minValor); //SIMULAR ESTATUS DE IMPRESION
+        if(estatusFinal == 1){
+            return false; // NO SE IMPRIMIO
+        }
+        else{
+            return true; // SE IMPRIMIO CORRECTAMENTE
+        }
+    }
+    
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public List<Trabajo> getTrabajos() {
+        return colaDeImpresion;
+    }
+     
 }
