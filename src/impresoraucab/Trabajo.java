@@ -10,7 +10,12 @@ package impresoraucab;
  * @author josea
  */
 public class Trabajo {
+    public enum Estatus
+    {
+        IMPRIMIR, CANCELADO
+    }
     private Estatus estatus;
+    
     
     public void Trabajo(Estatus estatus){
         this.estatus = estatus;

@@ -14,15 +14,29 @@ import java.util.Scanner;
  * @author josea
  */
 public class ImpresoraUCAB {
-
-    /**
-     * @param args the command line arguments
-     */
+    private enum Estatus
+      {
+          Dentro, Salir
+      }
+    private static Estatus estatusActual;
+    private static List<Impresora> redImpresoras = new ArrayList<>();
+    private static Scanner reader = new Scanner(System.in);
+    
+    private static void setEstatusActual(Estatus estatus){
+        estatusActual = estatus;
+    }
+    
+    private static Estatus getEstatusActual(){
+        return estatusActual;
+    }
+    
+    private static void añadirLinea(){
+        System.out.println("\n------------------------------------------\n");
+    }
+    
     public static void main(String[] args) {
-                // TODO code application logic here
-         List<Impresora> redImpresoras = new ArrayList<>();
-         
-         Scanner reader = new Scanner(System.in);
+        
+         estatusActual = Estatus.Dentro;
          System.out.println("Ingrese la cantidad de impresoras");
          int cantImpresoras = Integer.parseInt(reader.nextLine());  
 
@@ -30,6 +44,23 @@ public class ImpresoraUCAB {
             redImpresoras.add(new Impresora());
          }     
          System.out.println("Se añadieron " + redImpresoras.size() + " impresoras"); 
+         
+         while (getEstatusActual() == Estatus.Dentro) {
+            añadirLinea();
+            MenuPrincipal.mostrarMenu();
+            switch (MenuPrincipal.pedirDato()) {
+                case imprimir:
+                    break;
+                case añadirDocumento:
+                    break;
+                case añadirImpresora:
+                    break;
+                case salir:
+                    setEstatusActual(Estatus.Salir);
+                    break;
+                default:
+                    break;
+            }
+        }  
     }
-    
 }

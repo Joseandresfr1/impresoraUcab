@@ -17,6 +17,7 @@ public class Impresora {
     private List<Trabajo> colaDeImpresion = new ArrayList<>();
     private boolean  estado; 
     private int id;
+    
 
     public int getId() {
         return id;
@@ -31,7 +32,7 @@ public class Impresora {
     //obtiene la cantidad de trabajos (número entero positivo) encolados que deben ser impresos
         int cont = 0;
         for (Trabajo trabajo : colaDeImpresion) {
-            if (trabajo.getEstatus() == Estatus.IMPRIMIR) {
+            if (trabajo.getEstatus() == Trabajo.Estatus.IMPRIMIR) {
                 cont++;
             }
         }
