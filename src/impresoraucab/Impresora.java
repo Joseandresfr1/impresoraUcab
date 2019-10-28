@@ -23,7 +23,7 @@ public class Impresora {
 
     }
 
-    public int obtenerTrabajosEnCola() {
+    private int obtenerTrabajosEnCola() {
         //obtiene la cantidad de trabajos (número entero positivo) encolados que deben ser impresos
         int cont = 0;
         for (Trabajo trabajo : colaDeImpresion) {
@@ -34,11 +34,11 @@ public class Impresora {
         return cont;
     }
 
-    public void pausarImpresion() {
+    private void pausarImpresion() {
         //obtiene un estado (booleano) de encendido o apagado
     }
 
-    public void estaImprimiendo(Trabajo trabajo) {
+    private void estaImprimiendo(Trabajo trabajo) {
         //permite conocer si se esta imprimiendo un trabajo, que anteriormente haya estado encolado.
         if (this.colaDeImpresion.contains(trabajo)) {
             if (trabajo.getEstatus() == Estatus.IMPRIMIENDO) {
@@ -51,18 +51,19 @@ public class Impresora {
         }
     }
 
-    public Trabajo obtenerTrabajoParaImprimir() {
+    private Trabajo obtenerTrabajoParaImprimir() {
         //obtiene el trabajo proximo a ser impreso.
         Trabajo trabajoEncontrado = null;
         for (Trabajo trabajo : colaDeImpresion) {
             if (trabajo.getEstatus() == Estatus.IMPRIMIR) {
                 trabajoEncontrado = trabajo;
+                break;
             }
         }
         return trabajoEncontrado;
     }
 
-    public boolean imprimir(Trabajo trabajo) throws InterruptedException {
+    private boolean imprimir(Trabajo trabajo) throws InterruptedException {
         TimeUnit.SECONDS.sleep(5); // ESPERA QUE SIMULA IMPRESION
         int maxValor = 5;
         int minValor = 1;
