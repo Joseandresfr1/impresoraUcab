@@ -13,7 +13,7 @@ public class Trabajo {
 
     public enum Estatus
     {
-        IMPRIMIR, CANCELADO
+        IMPRIMIR, IMPRIMIENDO, IMPRESO, CANCELADO
     }
  
     private Estatus estatus;

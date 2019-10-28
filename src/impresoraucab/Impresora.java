@@ -49,7 +49,7 @@ public class Impresora {
     private void estaImprimiendo(Trabajo trabajo) {
         //permite conocer si se esta imprimiendo un trabajo, que anteriormente haya estado encolado.
         if (this.colaDeImpresion.contains(trabajo)) {
-            if (trabajo.getEstatus() == Estatus.IMPRIMIENDO) {
+            if (trabajo.getEstatus() == Trabajo.Estatus.IMPRIMIENDO) {
                 this.estado = true;
             } else {
                 this.estado = false;
@@ -63,7 +63,7 @@ public class Impresora {
         //obtiene el trabajo proximo a ser impreso.
         Trabajo trabajoEncontrado = null;
         for (Trabajo trabajo : colaDeImpresion) {
-            if (trabajo.getEstatus() == Estatus.IMPRIMIR) {
+            if (trabajo.getEstatus() == Trabajo.Estatus.IMPRIMIR) {
                 trabajoEncontrado = trabajo;
                 break;
             }
