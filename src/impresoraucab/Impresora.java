@@ -16,23 +16,31 @@ import java.util.concurrent.TimeUnit;
 public class Impresora {
 
     private List<Trabajo> colaDeImpresion = new ArrayList<>();
-    private boolean estado;
+    private boolean  estado; 
+    private int id;
+    
 
-    //Constructor
-    public void Impresora() {
-
+    public int getId() {
+        return id;
     }
-
-    private int obtenerTrabajosEnCola() {
-        //obtiene la cantidad de trabajos (número entero positivo) encolados que deben ser impresos
+    
+    //Constructor
+    public void Impresora(){
+        this.id = System.identityHashCode(this);
+    }
+    
+    public int obtenerTrabajosEnCola(){
+    //obtiene la cantidad de trabajos (número entero positivo) encolados que deben ser impresos
         int cont = 0;
         for (Trabajo trabajo : colaDeImpresion) {
-            if (trabajo.getEstatus() == Estatus.IMPRIMIR) {
+            if (trabajo.getEstatus() == Trabajo.Estatus.IMPRIMIR) {
+
                 cont++;
             }
         }
         return cont;
     }
+
 
     private void pausarImpresion() {
         //obtiene un estado (booleano) de encendido o apagado
@@ -74,6 +82,7 @@ public class Impresora {
             return true; // SE IMPRIMIO CORRECTAMENTE
         }
     }
+
 
     public void setEstado(boolean estado) {
         this.estado = estado;

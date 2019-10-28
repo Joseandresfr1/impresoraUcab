@@ -10,6 +10,12 @@ package impresoraucab;
  * @author josea
  */
 public class Trabajo {
+
+    public enum Estatus
+    {
+        IMPRIMIR, CANCELADO
+    }
+ 
     private Estatus estatus;
     private String contenido;
 
@@ -20,6 +26,7 @@ public class Trabajo {
     public String getContenido() {
         return contenido;
     }
+
     
     public void Trabajo(Estatus estatus){
         this.estatus = estatus;
