@@ -15,10 +15,16 @@ import java.util.concurrent.TimeUnit;
  */
 public class Impresora {
     private List<Trabajo> colaDeImpresion = new ArrayList<>();
-    private boolean  estado;   
+    private boolean  estado; 
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+    
     //Constructor
     public void Impresora(){
-        
+        this.id = System.identityHashCode(this);
     }
     
     public int obtenerTrabajosEnCola(){
