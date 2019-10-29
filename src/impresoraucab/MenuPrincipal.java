@@ -16,9 +16,8 @@ import java.util.Scanner;
         añadirImpresora, añadirDocumento, imprimir, salir ,opcionErrada
     }
     public static void mostrarMenu() {
-        System.out.println("1) Añadir impresora");
-        System.out.println("2) Añadir Documento");
-        System.out.println("3) Empezar a imprimir");
+        System.out.println("1) Añadir Documento");
+        System.out.println("2) Empezar a imprimir");
         System.out.println("0) Salir");
     }
     private static void opcionErrada() {
@@ -38,10 +37,8 @@ import java.util.Scanner;
         
         switch (opcionSelecionada) {
             case 1:
-                return (Estatus.añadirImpresora);
-            case 2:
                 return (Estatus.añadirDocumento);
-            case 3:
+            case 2:
                 return (Estatus.imprimir);
             case 0:
                 return (Estatus.salir);
