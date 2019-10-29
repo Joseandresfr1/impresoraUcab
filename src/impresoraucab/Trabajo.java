@@ -19,6 +19,11 @@ public class Trabajo {
     private Estatus estatus;
     private String contenido;
 
+    public Trabajo(String texto) {
+        this.contenido = texto;
+        this.estatus = Estatus.IMPRIMIR;
+    }
+
     public void setContenido(String contenido) {
         this.contenido = contenido;
     }
